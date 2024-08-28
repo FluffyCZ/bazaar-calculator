@@ -1,9 +1,3 @@
-API_KEY.json
-fonts.py
-api.py
-skyblock_utils.py
-main.py
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
