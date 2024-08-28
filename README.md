@@ -11,5 +11,8 @@ To get your sell price and npc margin, you should use [this website](https://www
 # Menu
 In the Menu, you can find "Help" section that can give u a basic info and get u to my github repository.
 
+# KeyBinds
+If u don't want to press the Calculate button all the time, u can instead press "Enter" on your keyboard to make it faster.
+
 # General Info
 This is my first repository, so I'm genuinely sorry for any mistakes. Hope you like it and have fun making profits.
