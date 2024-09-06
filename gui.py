@@ -9,7 +9,7 @@ def HelpMenu():
     messagebox.showinfo("Info", "A simple calculator for Bazaar")
 
 def GetWebLink():
-    url = "https://www.skyblock.bz/npc"
+    url = "https://github.com/FluffyCZ/bazaar-calculator"
     webbrowser.open(url)
 
 # Calculate the values
