@@ -4,6 +4,21 @@ from tkinter import font
 import os
 import webbrowser
 
+# Format number
+def format_number(num):
+    abs_num = abs(num)
+    if abs_num >= 1_000_000_000_000:
+        return f"{num / 1_000_000_000_000:.2f} T"
+    elif abs_num >= 1_000_000_000:
+        return f"{num / 1_000_000_000:.2f} B"
+    elif abs_num >= 1_000_000:
+        return f"{num / 1_000_000:.2f} M"
+    elif abs_num >= 1_000:
+        return f"{num / 1_000:.2f} k"
+    else:
+        return f"{num:.2f}"
+
+
 # Help GUI
 def HelpMenu():
     messagebox.showinfo("Info", "A simple calculator for Bazaar")
@@ -24,14 +39,19 @@ def Calculate(event=None): # Added 'event=None' to handle key binding
         profit_value = ((amount * sell_price_value) - (amount * sell_price))
         money_spend_value = (sell_price * amount)
         money_made_value = (money_spend_value + profit_value)
-        percentage_value = ((money_made_value * 100) // money_spend_value)
+
+        # Making sure the user doesnt divide by 0
+        if money_spend_value != 0:
+            percentage_value = ((money_made_value * 100) // money_spend_value)
+        else:
+            percentage_value = 0.0
 
         # Vars
-        sell_price_var.set(f"Sell Price: {sell_price_value:.2f}")
-        money_spend_var.set(f"Money Spent: {money_spend_value:.2f}")
-        profit_var.set(f"Profit: {profit_value:.2f}")
-        money_made_var.set(f"Money Made: {money_made_value:.2f}")
-        profit_percentage_var.set(f"Profit Percentage: {percentage_value:.2f}%")
+        sell_price_var.set(f"Sell Price: {format_number(sell_price_value)}")
+        money_spend_var.set(f"Money Spent: {format_number(money_spend_value)}")
+        profit_var.set(f"Profit: {format_number(profit_value)}")
+        money_made_var.set(f"Money Made: {format_number(money_made_value)}")
+        profit_percentage_var.set(f"Profit Percentage: {format_number(percentage_value)}%")
 
         # Clear the entry fields after calculation
         entry_sell_price.delete(0, END)
